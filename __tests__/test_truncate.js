@@ -1,14 +1,14 @@
 const test = require('ava');
-const unicode_aware_trim = require('../');
+const unicode_aware_truncate = require('../');
 
-test('trim_LongStringWithEmoji_ReturnsTrimedStringWithEmoji', t => {
+test('truncate_LongStringWithEmoji_ReturnsTruncatedStringWithEmoji', t => {
   let longEmojiString = '👨‍👨‍👧‍👧👨‍👦‍👦👨‍👩‍👦👥🤼‍♂️🚵‍♀️👨‍👧👨‍👨‍👧‍👧👨‍❤️‍👨'
-  let trimed = unicode_aware_trim(longEmojiString, 50);
-  t.true(trimed.length <= 50);
+  let truncated = unicode_aware_truncate(longEmojiString, 50);
+  t.true(truncated.length <= 50);
 });
 
-test('trim_LongSingleUnicodeCharacter_ReturnsEmptyString', t => {
+test('truncate_LongSingleUnicodeCharacter_ReturnsEmptyString', t => {
   let singleUnicodeCharacter = 'y‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑‍̑'
-  let trimed = unicode_aware_trim(singleUnicodeCharacter, 50);
-  t.true(trimed.length === 0);
+  let truncated = unicode_aware_truncate(singleUnicodeCharacter, 50);
+  t.true(truncated.length === 0);
 });
