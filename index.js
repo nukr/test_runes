@@ -1,4 +1,3 @@
-const { readFileSync } = require('fs');
 const runes = require('runes');
 
 function unicode_aware_truncate(str, desiredLength) {
